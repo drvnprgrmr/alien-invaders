@@ -14,6 +14,6 @@ Plan for Alien Invasion
 
 
 Ideas to extend the basic Alien Invasion.
-    -Include a dark mode where the ship changes it's color to the background color using the pygame method 'fill' for surfaces.
-
-    
+    - Include a dark mode where the ship changes it's color to the background color using the pygame method 'fill' for surfaces.
+    - Create an option for the ship to teleport(come out through the other side) once it reaches either edge of the screen.
+    - Create support for full-screen mode and minimizing. Shrink the game screen and aliens when minimizing.
