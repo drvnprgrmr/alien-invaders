@@ -3,7 +3,7 @@ Plan for Alien Invasion
         # Ship
         The ship appears at the bottom center of the screen.
         The player can move the ship left or right by using the left and right arrow keys respectively.
-        The player fires bullets using the spacebar key.
+        The player fires bullets using the space-bar key.
         The ship cannot be allowed to move outside the borders of the screen.
 
         # Aliens
@@ -11,4 +11,9 @@ Plan for Alien Invasion
         The aliens will start by moving left.
         Anytime the end aliens reach the end of the screen, they move down by a certain amount and then change direction.
     GAMEPLAY
+
+
+Ideas to extend the basic Alien Invasion.
+    -Include a dark mode where the ship changes it's color to the background color using the pygame method 'fill' for surfaces.
+
     
