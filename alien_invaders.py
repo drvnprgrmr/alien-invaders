@@ -5,6 +5,7 @@ import pygame
 # Internal imports.
 from settings import Settings
 from ship import Ship
+from bullet import Bullet
 
 
 class AlienInvasion:
@@ -28,6 +29,7 @@ class AlienInvasion:
         self.bg_color = self.settings.bg_color
 
         self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
 
     def _check_events(self):
         """ Helper method that checks for mouse clicks and key presses. """
@@ -49,6 +51,8 @@ class AlienInvasion:
         # Pressing 'q' to exit.
         elif event.key == pygame.K_q:
             sys.exit()
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
 
     def _check_keyup_events(self, event):
         """ Check for key releases. """
@@ -56,6 +60,25 @@ class AlienInvasion:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
+
+    def _fire_bullet(self):
+        """ Create a bullet and add it to the 'bullets' group only if the
+        bullets limit has not been exceeded. """
+        if len(self.bullets.sprites()) < self.settings.bullet_limit:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
+
+    def _update_bullets(self):
+        """ Update the positions of bullets and get rid of bullets that have
+        left the screen"""
+        # Update the bullets.
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
+
+        # Get rid of bullets that have disappeared.
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom < 0:
+                self.bullets.remove(bullet)
 
     def _update_screen(self):
         """ Helper method that updates the screen and all elements in it."""
@@ -67,6 +90,9 @@ class AlienInvasion:
         self.ship.update()
         self.ship.blitme()
 
+        # Draw the bullets to the screen.
+        self._update_bullets()
+
         # Make the most recently drawn screen visible.
         pygame.display.flip()
 
@@ -74,6 +100,7 @@ class AlienInvasion:
         """ Begin the main loop of the game. """
         while True:
             self._check_events()
+            self.bullets.update()
             self._update_screen()
 
 
