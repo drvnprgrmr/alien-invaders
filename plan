@@ -5,16 +5,21 @@ Plan for Alien Invasion
         The player can move the ship left or right by using the left and right arrow keys respectively.
         The player fires bullets using the space-bar key.
         The ship cannot be allowed to move outside the borders of the screen.
+        The player will have a maximum of three ships per round.
 
         # Aliens
         The aliens will be drawn to the screen at the beginning of the game.
+        Aliens will be drawn with spacing around them.
         The aliens will start by moving left.
         Anytime the end aliens reach the end of the screen, they move down by a certain amount and then change direction.
-    GAMEPLAY
 
+    GAMEPLAY
+        # Beginning
+        # During game
+        # Ending
 
 Ideas to extend the basic Alien Invasion.
     - Include a dark mode where the ship changes it's color to the background color using the pygame method 'fill' for surfaces.
     - Create an option for the ship to teleport(come out through the other side) once it reaches either edge of the screen.
     - Create support for full-screen mode and minimizing. Shrink the game screen and aliens when minimizing.
-    - Create invisible bullets.
+    - Create invisible bullets (should be integrated with the dark mode).
