@@ -1,5 +1,6 @@
 import pygame.font
 
+
 class Button:
     """ Creates a button with a message displayed on it. """
 
