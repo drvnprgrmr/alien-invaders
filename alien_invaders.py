@@ -10,7 +10,6 @@ from bullet import Bullet
 from alien import Alien
 from game_stats import GameStats
 from button import Button
-from difficulty_screen import DiffScreen
 
 
 class AlienInvasion:
@@ -44,8 +43,6 @@ class AlienInvasion:
         # Create the play button.
         self.play_button = Button(self, 'Play')
 
-        self.diff_screen = DiffScreen(self)
-
     def _check_events(self):
         """ Helper method that checks for mouse clicks and key presses. """
         for event in pygame.event.get():
@@ -64,9 +61,8 @@ class AlienInvasion:
         """ Start a new game if the button was clicked. """
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
-            self.settings.game_paused = True
-            # self.settings.initialize_dynamic_settings()
-            # self._restart_game()
+            self.settings.initialize_dynamic_settings()
+            self._restart_game()
 
     def _restart_game(self):
         # Make the mouse invisible during gameplay.
@@ -225,30 +221,26 @@ class AlienInvasion:
 
     def _update_screen(self):
         """ Helper method that updates the screen and all elements in it."""
-        if not self.settings.game_paused:
-            # Fill the screen with the set background color
-            self.screen.fill(self.bg_color)
+        # Fill the screen with the set background color
+        self.screen.fill(self.bg_color)
 
-            # Draw the ship to the screen using updated values of it's
-            # rect's position.
-            self.ship.blitme()
+        # Draw the ship to the screen using updated values of it's
+        # rect's position.
+        self.ship.blitme()
 
-            # Draw the bullets to the screen.
-            for bullet in self.bullets.sprites():
-                bullet.draw_bullet()
+        # Draw the bullets to the screen.
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
 
-            # Draw the fleet of aliens to the screen.
-            self.aliens.draw(self.screen)
+        # Draw the fleet of aliens to the screen.
+        self.aliens.draw(self.screen)
 
-            # Draw the play button to the screen.
-            if not self.stats.game_active:
-                self.play_button.draw_button()
+        # Draw the play button to the screen.
+        if not self.stats.game_active:
+            self.play_button.draw_button()
 
-            # Make the most recently drawn screen visible.
-            pygame.display.flip()
-
-        else:  # Draw the difficulty screen.
-            self.diff_screen.draw()
+        # Make the most recently drawn screen visible.
+        pygame.display.flip()
 
     def run_game(self):
         """ Begin the main loop of the game. """
