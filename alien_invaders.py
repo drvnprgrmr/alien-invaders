@@ -43,6 +43,7 @@ class AlienInvasion:
 
         # Create the play button.
         self.play_button = Button(self, 'Play')
+        self.paused_button = Button(self, None)
 
         self.scoreboard = Scoreboard(self)
 
@@ -99,10 +100,14 @@ class AlienInvasion:
             # Save the new highscore before quiting.
             self.stats.save_highscore(str(self.stats.high_score))
             sys.exit()
-        # Pressing 'p' to play.
+        # Pressing 'p' to play or pause.
         elif event.key == pygame.K_p:
             if not self.stats.game_active:
-                self._restart_game()
+                self.stats.game_active = True
+                self.stats.game_paused = False
+            elif self.stats.game_active:
+                self.stats.game_active = False
+                self.stats.game_paused = True
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
 
@@ -260,8 +265,10 @@ class AlienInvasion:
         self.aliens.draw(self.screen)
 
         # Draw the play button to the screen.
-        if not self.stats.game_active:
-            self.play_button.draw_button()
+        if not self.stats.game_active and not self.stats.game_paused:
+            self.play_button.draw_play_button()
+        if self.stats.game_paused:
+            self.paused_button.draw_paused_button()
 
         # Draw the scoreboard to the screen.
         self.scoreboard.show_scoreboard()
