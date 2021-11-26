@@ -13,13 +13,11 @@ Plan for Alien Invasion
         The aliens will start by moving left.
         Anytime the end aliens reach the end of the screen, they move down by a certain amount and then change direction.
 
-    GAMEPLAY
-        # Beginning
-        # During game
-        # Ending
 
 Ideas to extend the basic Alien Invasion.
     - Include a dark mode where the ship changes it's color to the background color using the pygame method 'fill' for surfaces.
     - Create an option for the ship to teleport(come out through the other side) once it reaches either edge of the screen.
     - Create support for full-screen mode and minimizing. Shrink the game screen and aliens when minimizing.
     - Create invisible bullets (should be integrated with the dark mode).
+    - Create functionality for multiple users.
+    - Add shields below the screen to protect the ship when a random alien fires a bullet.
