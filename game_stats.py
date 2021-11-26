@@ -5,7 +5,6 @@ class GameStats:
         with open('highscore.txt', 'r') as hs:
             high_score = hs.read()
         self.high_score = int(high_score)
-        self.level = 1
         self.reset_stats()
 
     def reset_stats(self):
@@ -15,7 +14,7 @@ class GameStats:
 
         # Start alien invasion in an inactive state.
         self.game_active = False
-
+        self.level = 1
         self.score = 0
 
     def save_highscore(self, new_hs):
