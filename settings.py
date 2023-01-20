@@ -23,15 +23,15 @@ class Settings:
                                 # killing an alien increases.
 
         # Rate at which the game speeds up.
-        self.speedup_scale = 1.2
+        self.speedup_scale = 1.4
 
         self.initialize_dynamic_settings()
 
     def initialize_dynamic_settings(self):
         """ Initialize the game settings that will change over time. """
-        self.alien_speed = 0.5
-        self.ship_speed = 2.5
-        self.bullet_speed = 1.0
+        self.alien_speed = 3
+        self.ship_speed = 7 
+        self.bullet_speed = 5
 
         self.fleet_direction = 1  # 1 means right; -1 means left
 
