@@ -18,7 +18,7 @@ class Settings:
         self.bullet_limit = 5
 
         # Alien Settings.
-        self.fleet_drop_speed = 5
+        self.fleet_drop_speed = 2
         self.score_scale = 1.5  # Rate at which the point's awarded for
                                 # killing an alien increases.
 
@@ -29,8 +29,8 @@ class Settings:
 
     def initialize_dynamic_settings(self):
         """ Initialize the game settings that will change over time. """
-        self.alien_speed = 1.5
-        self.ship_speed = 3
+        self.alien_speed = 1
+        self.ship_speed = 2
         self.bullet_speed = 3
 
         self.fleet_direction = 1  # 1 means right; -1 means left
