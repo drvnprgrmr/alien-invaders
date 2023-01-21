@@ -12,10 +12,10 @@ class Settings:
         self.ship_limit = 3
 
         # Bullet settings.
-        self.bullet_width = 3
+        self.bullet_width = 5
         self.bullet_height = 15
         self.bullet_color = (50, 50, 50)
-        self.bullet_limit = 4
+        self.bullet_limit = 5
 
         # Alien Settings.
         self.fleet_drop_speed = 5
@@ -29,9 +29,9 @@ class Settings:
 
     def initialize_dynamic_settings(self):
         """ Initialize the game settings that will change over time. """
-        self.alien_speed = 3
-        self.ship_speed = 7 
-        self.bullet_speed = 5
+        self.alien_speed = 1.5
+        self.ship_speed = 3
+        self.bullet_speed = 3
 
         self.fleet_direction = 1  # 1 means right; -1 means left
 
