@@ -23,7 +23,7 @@ class Settings:
                                 # killing an alien increases.
 
         # Rate at which the game speeds up.
-        self.speedup_scale = 1.4
+        self.speedup_scale = 1.1
 
         self.initialize_dynamic_settings()
 
